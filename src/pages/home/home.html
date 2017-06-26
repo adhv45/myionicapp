@@ -32,7 +32,7 @@
 
     </ion-item>
 
-      <ion-item *ngFor="let item of students">
+      <ion-item *ngFor="let item of all">
         <ion-row>
 
           <p class="para">{{item.name}}</p>
@@ -47,9 +47,9 @@
 
     <ion-input type="text" [(ngModel)]="student_year"></ion-input>
 
-    <button ion-button (click)="addstudent()">Add Student</button>
+    <!--<button ion-button (click)="addstudent()">Add Student</button>-->
 
-    <button ion-button (click)="gotosecondpage()">login</button>
+    <button ion-button (click)="setdata()">login</button>
   </ion-list>
 
   <ion-input type="text" [(ngModel)]="addcomments"></ion-input>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+
 
 /**
  * Generated class for the SecondPage page.
@@ -14,7 +16,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SecondPage {
   username:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  lat:number;
+  long:number;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation) {
+
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.lat=resp.coords.latitude
+      this.long=resp.coords.longitude
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
   }
 
   ionViewDidLoad() {

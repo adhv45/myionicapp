@@ -14,7 +14,7 @@ import {FirstpagePage} from "../pages/firstpage/firstpage";
 import {SecondPage} from "../pages/second/second";
 import { DatafetchProvider } from '../providers/datafetch/datafetch';
 import {HttpModule} from "@angular/http";
-
+import { Geolocation } from '@ionic-native/geolocation';
 @NgModule({
   declarations: [
     MyApp,
@@ -45,7 +45,8 @@ import {HttpModule} from "@angular/http";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DatafetchProvider
+    DatafetchProvider,
+    Geolocation
   ]
 })
 export class AppModule {}

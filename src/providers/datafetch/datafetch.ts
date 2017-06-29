@@ -12,6 +12,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DatafetchProvider {
 data:any;
+location:number;
   constructor(public http: Http) {
     console.log('Hello DatafetchProvider Provider');
   }
@@ -60,4 +61,47 @@ data:any;
   }
 
 
+  locate() {
+    if (this.location) {
+      console.log("g");
+      //return Promise.resolve(this.data);
+      return new Promise(resolve => {
+
+
+        this.http.get('https://vehiclevaioti.herokuapp.com/location')
+          .map(res => res.json())
+          .subscribe(location => {
+              this.location = location;
+              resolve(this.location);
+              //console.log(location);
+              console.log("reloaded");
+            },
+            err => {
+              console.log("Gups!");
+            }
+          );
+      });
+
+    }
+    return new Promise(resolve => {
+
+
+      this.http.get('https://vehiclevaioti.herokuapp.com/location')
+        .map(res => res.json())
+        .subscribe(location => {
+            this.location = location;
+            resolve(this.location);
+            //console.log(location);
+            console.log("reloaded");
+          },
+          err => {
+            console.log("Gups!");
+
+
+          });
+
+    });
+
+
+  }
 }

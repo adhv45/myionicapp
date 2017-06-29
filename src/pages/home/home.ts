@@ -54,7 +54,7 @@ export class HomePage {
       this.navCtrl.push(SecondPage, {"username": this.username});
   }
 
-  setdata() {
+  /*setdata() {
     this.update = {
       name: this.username,
       password: this.password,
@@ -73,5 +73,5 @@ export class HomePage {
       console.log("Error!:",err.json());
     });
     this.gotosecondpage();
-  }
+  }*/
 }
